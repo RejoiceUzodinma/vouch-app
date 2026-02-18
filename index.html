@@ -12,22 +12,20 @@
         <p> Secure peer-peer Escrow for safe Transaction </p>
         
     </header>
-       <hr>
+         <main> 
+            <!--Contract Section-->
        <section>
-           
            <h2> Create a Transaction Contract</h2>
            <form>
-            <label for="buyer">Buyer Name:</label><br>
-            <input type="text" id="buyer" name="buyer"><br><br>
+            <label for="buyer">Buyer Name:</label><br> 
+            <input type="text" id="buyer" name="buyer" required><br><br>
             
             <label for="seller">Seller Name:</label><br>
-            <input type="text" id="seller" name="Seller"><br><br
-            
-            <label for="item">Item / Service:</label><br>
-            <input type="text" id="item" name="item"><br><br>
-            
+            <input type="text" id="seller" name="Seller" required><br><br> 
+            <label for="items">Item Description(s)</label>
+            <textarea id="items" rows="4" placeholder="Describe item (s) in details..."></textarea><br><br>
             <label for="amount">Agreed price (₦):</label><br>
-            <input type="number" id="amount" name="amount"><br><br>
+            <input type="number" id="amount" name="amount" required><br><br> 
 
             <button type="submit">Create Contract</button>
            </form>
@@ -45,6 +43,47 @@
             <button id="disput-btn">Dispute</button>
         </div>
        </section>
+
+       <section>
+        <h2>Transaction Summary</h2>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Buyer</th>
+                    <th>Seller</th>
+                    <th>Item</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Rejoice</th>
+                    <th>Dealer A</th>
+                    <th>Car</th>
+                    <th>88,000,000</th>
+                    <th>Pending</th>
+                </tr>
+            </tbody>
+        </table>
+       </section>
+
+       <section>
+        <h2>How Vouch Works</h2>
+        <p>Escrow demo launching Day 4</p> 
+        <video width="300" controls>
+            <source src="sample-video.mp4" type="video/mp4">
+            Your browser does not support the video tag
+        </video>
+        <div style="width:300px; height: 200px; border:1px solid #000; display:flex; 
+        align-items: center; justify-content: center; margin-top: 10px;">
+        Escrow workflow diagram - launching Day 4
+    </div>
+    </section>
+        <img src=>
+         </main>
        <footer>
         <p> &copy; 2026 Vouch Mvp - Built by Rejoice Uzodinma</p>
        </footer>
