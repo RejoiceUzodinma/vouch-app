@@ -1,0 +1,228 @@
+/* Project: Vouch Brand Identity
+    Design System: 8px Rhythm
+    Founder: Rejoice Uzodinma
+*/
+
+:root {
+    /* Color Palette */
+    --vouch-primary: #1E3A8A;   /* Trust Blue */
+    --vouch-success: #10B981;   /* Growth Green */
+    --vouch-danger: #DC2626;    /* Alert Red */
+    --vouch-warning: #B45309;   /* Caution Orange */
+    --vouch-bg: #F8FAFC;        
+    --vouch-surface: #FFFFFF;   
+    --vouch-text: #0F172A;      
+    --vouch-muted: #6B7280;
+
+    /* Spacing System */
+    --space-8: 8px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-32: 32px;
+}
+
+/* ===== BASE STYLES ===== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--vouch-bg);
+    color: var(--vouch-text);
+    line-height: 1.6;
+    padding: var(--space-24);
+}
+
+.container { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2 { 
+    color: var(--vouch-primary); 
+    margin-bottom: var(--space-8); 
+    font-weight: 700;
+}
+
+.subtitle { 
+    color: var(--vouch-muted); 
+    font-size: 16px; 
+    margin-bottom: var(--space-32); 
+}
+
+/* ===== LAYOUT SYSTEM ===== */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-32);
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== COMPONENT: CARDS ===== */
+section {
+    background: var(--vouch-surface);
+    padding: var(--space-32);
+    margin-bottom: var(--space-32);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.08);
+}
+
+/* ===== COMPONENT: FORMS ===== */
+.form-group {
+    margin-bottom: var(--space-16);
+    display: flex;
+    flex-direction: column;
+}
+
+label { 
+    font-weight: 600; 
+    font-size: 14px; 
+    margin-bottom: var(--space-8); 
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--vouch-primary);
+}
+
+/* ===== COMPONENT: BUTTONS ===== */
+button, .btn-feedback {
+    height: 48px;
+    padding: 0 var(--space-24);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    text-decoration: none; /* For link buttons */
+}
+
+/* Primary Actions */
+.btn-primary, #secure-btn {
+    background-color: var(--vouch-primary);
+    color: white;
+}
+
+/* Secondary Actions (Success) */
+#release-btn {
+    background-color: var(--vouch-success);
+    color: white;
+}
+
+/* Danger Actions */
+#dispute-btn {
+    background-color: var(--vouch-danger);
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===== COMPONENT: FEEDBACK SECTION ===== */
+.feedback-section {
+    text-align: center;
+    padding: var(--space-32);
+    background: #EFF6FF;
+    border-radius: 12px;
+    margin-bottom: var(--space-32);
+    border: 1px dashed var(--vouch-primary);
+}
+
+.feedback-section p {
+    font-weight: 600;
+    margin-bottom: var(--space-16);
+    color: var(--vouch-primary);
+}
+
+.btn-feedback {
+    background-color: var(--vouch-primary);
+    color: white;
+}
+
+/* ===== COMPONENT: TABLES ===== */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+th, td { 
+    padding: 16px; 
+    border-bottom: 1px solid #E2E8F0; 
+    text-align: left; 
+}
+
+th { 
+    background-color: #F1F5F9; 
+    color: var(--vouch-primary); 
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ===== STATUS INDICATORS ===== */
+.status-pending { color: var(--vouch-warning); font-weight: 700; }
+.status-secured { color: var(--vouch-primary); font-weight: 700; }
+.status-released { color: var(--vouch-success); font-weight: 700; }
+.status-disputed { color: var(--vouch-danger); font-weight: 700; }
+
+/* ===== ADMIN CONTROLS ===== */
+.admin-controls {
+    text-align: center;
+    margin-top: var(--space-32);
+}
+
+.btn-clear {
+    background-color: #FEF2F2;
+    color: var(--vouch-muted);
+    border: 1px solid #FECACA;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.btn-clear:hover {
+    color: var(--vouch-danger);
+    
+}
+
+.footer {
+    text-align: center;
+    margin-top: var(--space-32);
+    color: var(--vouch-muted);
+    font-size: 14px;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vouch | Secure Nigerian Escrow</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="navbar">
+            <h1>Vouch</h1>
+            <p class="subtitle">Trust in Commerce</p>
+        </header>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <p>Total Volume in Escrow: <strong>₦<span id="total-amount-display">0</span></strong></p>
+            </div>
+        </div>
+
+        <main class="grid-layout">
+
+            <section class="contract">
+                <h2>Create a Transaction Contract</h2>
+                <form id="contract-form">
+                    <div class="form-group">
+                        <label for="buyer-name">Buyer Name</label>
+                        <input type="text" id="buyer-name" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seller-name">Seller Name</label>
+                        <input type="text" id="seller-name" placeholder="Vendor Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="item-desc">Item Description</label>
+                        <textarea id="item-desc" placeholder="What is being traded?" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Agreed Price (₦)</label>
+                        <input type="number" id="amount" placeholder="e.g. 50000" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Create Contract</button>
+                </form>
+            </section>
+
+            <section class="vault">
+                <h2>Vouch Vault</h2>
+                <div id="vault-status">
+                    <span id="status-text" class="status-pending">PENDING</span>
+                </div>
+                <div class="vault-actions">
+                    <button id="secure-btn" class="btn-action">Secure in Escrow</button>
+                    <button id="release-btn" class="btn-action">Release Funds</button>
+                    <button id="dispute-btn" class="btn-dispute">Dispute</button>
+                </div>
+            </section>
+
+            <section class="summary">
+                <h2>Transaction History</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Buyer</th>
+                                <th>Seller</th>
+                                <th>Item</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaction-table">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <div class="feedback-section">
+            <p>Help me build the future of trust.</p>
+            <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn-feedback">Give Honest Feedback</a>
+        </div>
+
+        <div class="admin-controls">
+            <button onclick="clearVouchData()" class="btn-clear">Clear All Data</button>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2026 Vouch - Built with excellence by Rejoice Uzodinma</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
