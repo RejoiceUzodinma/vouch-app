@@ -5,7 +5,7 @@
  * Description: Manages escrow lifecycle from contract creation to fund release.
  */
 
-// ===== 1. CORE STATE MANAGEMENT =====
+// ===== CORE STATE MANAGEMENT =====
 let transactions = JSON.parse(localStorage.getItem('vouch_transactions')) || [];
 let totalEscrowVolume = parseFloat(localStorage.getItem('vouch_total_volume')) || 0;
 let activeTransactionIndex = null;
@@ -18,7 +18,7 @@ const saveToDisk = () => {
     localStorage.setItem('vouch_total_volume', totalEscrowVolume);
 };
 
-// ===== 2. UI RENDERERS =====
+// ===== UI RENDERERS =====
 
 /**
  * Updates the Global Volume Display
@@ -37,7 +37,7 @@ const updateVolumeDisplay = (newAmount = 0) => {
 };
 
 /**
- * Refreshes the Transaction Ledger Table
+ * Refreshes the Transaction Ledger Table (Mobile-Ready Version)
  */
 const renderLedger = () => {
     const tableBody = document.getElementById("transaction-table");
@@ -47,15 +47,16 @@ const renderLedger = () => {
         <tr onclick="setActiveTransaction(${index})" 
             class="${activeTransactionIndex === index ? 'selected-row' : ''}" 
             style="cursor:pointer">
-            <td>${t.buyer}</td>
-            <td>${t.seller}</td>
-            <td>${t.item}</td>
-            <td>₦${Number(t.amount).toLocaleString()}</td>
-            <td><span class="status-${t.status}">${t.status.toUpperCase()}</span></td> 
+            <td data-label="BUYER">${t.buyer}</td>
+            <td data-label="SELLER">${t.seller}</td>
+            <td data-label="ITEM">${t.item}</td>
+            <td data-label="AMOUNT">₦${Number(t.amount).toLocaleString()}</td>
+            <td data-label="STATUS"><span class="status-${t.status.toLowerCase()}">${t.status.toUpperCase()}</span></td> 
         </tr>
     `).join('');
+    
+    updateVolumeDisplay(); // Ensure the top total updates too
 };
-
 /**
  * Updates the Vault Control Panel based on selection
  */
