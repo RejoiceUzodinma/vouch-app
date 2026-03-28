@@ -10,9 +10,7 @@ let transactions = JSON.parse(localStorage.getItem('vouch_transactions')) || [];
 let totalEscrowVolume = parseFloat(localStorage.getItem('vouch_total_volume')) || 0;
 let activeTransactionIndex = null;
 
-/**
- * Persists current state to Browser Memory
- */
+
 const saveToDisk = () => {
     localStorage.setItem('vouch_transactions', JSON.stringify(transactions));
     localStorage.setItem('vouch_total_volume', totalEscrowVolume);
@@ -20,9 +18,7 @@ const saveToDisk = () => {
 
 // ===== UI RENDERERS =====
 
-/**
- * Updates the Global Volume Display
- */
+
 const updateVolumeDisplay = (newAmount = 0) => {
     const amountAsNumber = parseFloat(newAmount);
     if (!isNaN(amountAsNumber)) {
@@ -36,9 +32,7 @@ const updateVolumeDisplay = (newAmount = 0) => {
     saveToDisk();
 };
 
-/**
- * Refreshes the Transaction Ledger Table (Mobile-Ready Version)
- */
+
 const renderLedger = () => {
     const tableBody = document.getElementById("transaction-table");
     if (!tableBody) return;
@@ -55,7 +49,7 @@ const renderLedger = () => {
         </tr>
     `).join('');
     
-    updateVolumeDisplay(); // Ensure the top total updates too
+    updateVolumeDisplay(); 
 };
 /**
  * Updates the Vault Control Panel based on selection
@@ -74,7 +68,7 @@ const renderVaultUI = () => {
 
     const current = transactions[activeTransactionIndex];
     
-    // Update Status Pill
+  
     if (statusText) {
         statusText.textContent = current.status.toUpperCase();
         statusText.className = `status-${current.status}`;
@@ -86,7 +80,7 @@ const renderVaultUI = () => {
     if (disputeBtn) disputeBtn.disabled = (current.status !== "secured");
 };
 
-// ===== 3. ACTION HANDLERS =====
+
 
 const setActiveTransaction = (index) => {
     activeTransactionIndex = index;
@@ -118,7 +112,7 @@ const handleStatusChange = (newStatus) => {
     renderLedger();
 };
 
-// ===== 4. EVENT LISTENERS =====
+
 
 document.addEventListener("DOMContentLoaded", () => {
     updateVolumeDisplay(0); // Initialize display
@@ -159,9 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("dispute-btn").onclick = () => handleStatusChange("disputed");
 });
 
-/**
- * Administrative Reset
- */
+
 window.clearVouchData = () => {
     if(confirm("VAULT SECURITY: Wipe all transaction history? This cannot be undone. ⚠️")) {
         localStorage.clear();
